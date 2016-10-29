@@ -1,0 +1,21 @@
+language: php
+php:
+  - '5.6'
+  - '7.0'
+
+services:
+  - mysql
+
+install:
+  - composer global require "fxp/composer-asset-plugin:^1.2.0" --quiet
+  - composer install --quiet --no-interaction
+
+before_script:
+  - cp .env.dist .env
+  - mysql -e 'create database vk_user_friends_test;' -u root
+  - mysql -e 'create user vk_user_friends@localhost; grant all on vk_user_friends_test.* to vk_user_friends@localhost;' -u root
+  - ./tests/bin/yii migrate --interactive=0
+
+script:
+  - ./vendor/bin/codecept build
+  - ./vendor/bin/codecept run
