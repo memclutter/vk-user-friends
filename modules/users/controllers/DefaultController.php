@@ -2,6 +2,7 @@
 
 namespace app\modules\users\controllers;
 
+use yii\filters\AccessControl;
 use yii\web\Controller;
 
 /**
@@ -9,6 +10,22 @@ use yii\web\Controller;
  */
 class DefaultController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'actions' => ['index'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
     /**
      * Renders the index view for the module
      * @return string

@@ -32,6 +32,7 @@ class Module extends \yii\base\Module
             'fileMap' => [
                 'modules/users/users' => 'users.php',
                 'modules/users/models' => 'models.php',
+                'modules/users/views' => 'views.php',
             ],
         ];
     }

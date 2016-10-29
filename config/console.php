@@ -3,11 +3,12 @@
 $params = require(__DIR__ . '/params.php');
 $db = require(__DIR__ . '/db.php');
 $i18n = require(__DIR__ . '/i18n.php');
+$authClientCollection = require(__DIR__ . '/authClientCollection.php');
 
 $config = [
     'id' => 'basic-console',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log', 'common'],
+    'bootstrap' => ['log', 'auth', 'common'],
     'controllerNamespace' => 'app\commands',
     'components' => [
         'cache' => [
@@ -23,8 +24,12 @@ $config = [
         ],
         'db' => $db,
         'i18n' => $i18n,
+        'authClientCollection' => $authClientCollection,
     ],
     'modules' => [
+        'auth' => [
+            'class' => 'app\modules\auth\Module',
+        ],
         'common' => [
             'class' => 'app\modules\common\Module',
         ],

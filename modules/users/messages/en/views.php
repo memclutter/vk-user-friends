@@ -17,11 +17,6 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'user.social_id' => 'Социальный ID',
-    'user.auth_key' => 'Ключ авторизации',
-    'user.email' => 'Email',
-    'user.first_name' => 'Имя',
-    'user.id' => 'ID',
-    'user.last_name' => 'Фамилия',
-    'user.username' => 'Имя пользователя',
+    'login.index.authorize' => 'Authorize',
+    'login.index.content' => 'Please login',
 ];
