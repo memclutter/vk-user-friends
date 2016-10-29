@@ -15,12 +15,15 @@ class Friend extends Model
     public $last_name;
     public $photo_50;
     public $photo_100;
+    public $photo_200;
     public $online;
     public $status;
     public $user_id;
     public $lists;
     public $online_mobile;
     public $online_app;
+    public $deactivated;
+    public $status_audio;
 
     /**
      * @return Friend[]
@@ -31,7 +34,7 @@ class Friend extends Model
         $result = static::getAuthClient('vk')->api('friends.get', 'GET', [
             'count' => 5,
             'order' => 'random',
-            'fields' => ['first_name', 'last_name', 'photo_50', 'photo_100', 'online', 'status'],
+            'fields' => ['first_name', 'last_name', 'photo_50', 'photo_100', 'photo_200', 'online', 'status'],
         ]);
 
         if (!isset($result['response']) || empty($result['response'])) {

@@ -11,15 +11,25 @@ use app\modules\users\Module;
 
 <div class="row">
     <div class="col-sm-3">
-        <p>
-            <?= Html::img($userIdentity->photo, [
-                'class' => 'img-circle',
-            ]) ?>
-            <b>
-                <?= Html::encode($userIdentity->first_name) ?>
-                <?= Html::encode($userIdentity->last_name) ?>
-            </b>
-        </p>
+        <div class="media">
+            <div class="media-left media-middle">
+                <a href="#">
+                    <?= Html::img($userIdentity->photo, [
+                        'class' => 'media-object img-rounded',
+                        'alt' => $userIdentity->first_name . ' ' . $userIdentity->last_name,
+                    ]) ?>
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">
+                    <?= $userIdentity->first_name ?>
+                    <?= $userIdentity->last_name ?>
+                </h4>
+                <p>
+                    <?= Html::a('<span class="glyphicon glyphicon-log-out"></span> Выход', ['/users/logout/index']) ?>
+                </p>
+            </div>
+        </div>
     </div>
     <div class="col-sm-9">
         <?php foreach ($dataProvider->getModels() as $model): ?>
@@ -27,7 +37,7 @@ use app\modules\users\Module;
                 <div class="media-left media-middle">
                     <a href="#">
                         <?= Html::img($model->photo_50, [
-                            'class' => 'media-object',
+                            'class' => 'media-object img-rounded',
                             'alt' => $model->first_name . ' ' . $model->last_name,
                         ]) ?>
                     </a>
@@ -37,7 +47,16 @@ use app\modules\users\Module;
                         <?= $model->first_name ?>
                         <?= $model->last_name ?>
                     </h4>
-                    <?= $model->status ?>
+                    <?php if ($model->online_mobile): ?>
+                        <span class="glyphicon glyphicon-phone text-success"></span>
+                    <?php elseif ($model->online): ?>
+                        <span class="glyphicon glyphicon-globe text-success"></span>
+                    <?php else: ?>
+                        <span class="glyphicon glyphicon-globe"></span>
+                    <?php endif ?>
+                    <span class="text-muted">
+                        <?= $model->status ?>
+                    </span>
                 </div>
             </div>
         <?php endforeach ?>
