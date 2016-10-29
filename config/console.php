@@ -2,6 +2,7 @@
 
 $params = require(__DIR__ . '/params.php');
 $db = require(__DIR__ . '/db.php');
+$i18n = require(__DIR__ . '/i18n.php');
 
 $config = [
     'id' => 'basic-console',
@@ -21,10 +22,14 @@ $config = [
             ],
         ],
         'db' => $db,
+        'i18n' => $i18n,
     ],
     'modules' => [
         'common' => [
             'class' => 'app\modules\common\Module',
+        ],
+        'users' => [
+            'class' => 'app\modules\users\Module',
         ],
     ],
     'params' => $params,

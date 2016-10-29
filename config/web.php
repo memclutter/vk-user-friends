@@ -39,6 +39,7 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'i18n' => require(__DIR__ . '/i18n.php'),
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -49,6 +50,9 @@ $config = [
     'modules' => [
         'common' => [
             'class' => 'app\modules\common\Module',
+        ],
+        'users' => [
+            'class' => 'app\modules\users\Module',
         ],
     ],
     'params' => $params,
