@@ -16,3 +16,4 @@ coverage:
         - modules/*
     exclude:
         - modules/*/views/*
+        - modules/*/messages/*
