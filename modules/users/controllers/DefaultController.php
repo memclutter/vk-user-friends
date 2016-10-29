@@ -2,6 +2,10 @@
 
 namespace app\modules\users\controllers;
 
+use app\modules\auth\mixins\AuthClientMixin;
+use app\modules\users\models\Friend;
+use Yii;
+use yii\data\ArrayDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 
@@ -32,6 +36,14 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $userIdentity = Yii::$app->user->getIdentity();
+        $dataProvider = new ArrayDataProvider([
+            'allModels' => Friend::findFiveRandom(),
+        ]);
+
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+            'userIdentity' => $userIdentity,
+        ]);
     }
 }

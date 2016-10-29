@@ -16,6 +16,7 @@ use yii\web\IdentityInterface;
  * @property string $last_name
  * @property string $auth_key
  * @property string $email
+ * @property string $photo
  */
 class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
@@ -47,6 +48,9 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             ['auth_key', 'unique'],
 
             ['email', 'email'],
+
+            ['photo', 'string'],
+            ['photo', 'url'],
         ];
     }
 
@@ -74,6 +78,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             'last_name' => Module::t('models', 'user.last_name'),
             'auth_key' => Module::t('models', 'user.auth_key'),
             'email' => Module::t('models', 'user.email'),
+            'photo' => Module::t('models', 'user.photo'),
         ];
     }
 

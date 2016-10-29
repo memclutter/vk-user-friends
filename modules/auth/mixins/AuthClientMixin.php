@@ -3,14 +3,15 @@
 namespace app\modules\auth\mixins;
 
 use app\modules\auth\Module;
+use yii\authclient\clients\VKontakte;
 
 trait AuthClientMixin
 {
     /**
      * @param $id
-     * @return \yii\authclient\ClientInterface
+     * @return \yii\authclient\ClientInterface|VKontakte
      */
-    public function getAuthClient($id)
+    public static function getAuthClient($id)
     {
         return Module::getInstance()->getAuthClient($id);
     }

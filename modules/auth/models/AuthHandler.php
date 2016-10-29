@@ -62,6 +62,7 @@ class AuthHandler
             'username' => $username,
             'first_name' => ArrayHelper::getValue($attributes, 'first_name'),
             'last_name' => ArrayHelper::getValue($attributes, 'last_name'),
+            'photo' => ArrayHelper::getValue($attributes, 'photo'),
         ]);
 
         $user->save();
@@ -75,6 +76,7 @@ class AuthHandler
 
         $user->first_name = ArrayHelper::getValue($attributes, 'first_name', $user->first_name);
         $user->last_name = ArrayHelper::getValue($attributes, 'last_name', $user->last_name);
+        $user->photo = ArrayHelper::getValue($attributes, 'photo', $user->photo);
 
         $user->save();
     }
