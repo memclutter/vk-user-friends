@@ -9,3 +9,10 @@ modules:
       - Asserts
       - Yii2:
             part: [orm, email]
+
+coverage:
+    enabled: true
+    include:
+        - modules/*
+    exclude:
+        - modules/*/views/*

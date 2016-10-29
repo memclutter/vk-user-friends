@@ -22,7 +22,7 @@ $config = [
             'loginUrl' => ['users/login/index'],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'common/error/index',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
