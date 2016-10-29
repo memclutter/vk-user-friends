@@ -17,6 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'user.photo' => 'Photo',
     'user.auth_key' => 'Auth Key',
     'user.email' => 'Email',
     'user.first_name' => 'First Name',

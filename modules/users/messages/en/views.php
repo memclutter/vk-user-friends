@@ -17,6 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'default.index.logout' => 'Logout',
     'login.index.authorize' => 'Authorize',
     'login.index.content' => 'Please login',
 ];

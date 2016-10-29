@@ -26,7 +26,10 @@ use app\modules\users\Module;
                     <?= $userIdentity->last_name ?>
                 </h4>
                 <p>
-                    <?= Html::a('<span class="glyphicon glyphicon-log-out"></span> Выход', ['/users/logout/index']) ?>
+                    <?= Html::a(
+                        '<span class="glyphicon glyphicon-log-out"></span> ' . Module::t('views', 'default.index.logout'),
+                        ['/users/logout/index']
+                    ) ?>
                 </p>
             </div>
         </div>
