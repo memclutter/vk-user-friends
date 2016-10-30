@@ -44,7 +44,7 @@ class AuthHandler
                 $user = $this->signUpUser();
             }
 
-            Yii::$app->user->login($user);
+            Yii::$app->user->login($user, Yii::$app->params['userLoginDuration']);
         }
     }
 
