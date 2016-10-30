@@ -7,7 +7,7 @@ services:
   - mysql
 
 install:
-  - composer global require "fxp/composer-asset-plugin:^1.2.0" --quiet
+#  - composer global require "fxp/composer-asset-plugin:^1.2.0" --quiet
   - composer install --quiet --no-interaction
 
 before_script:
