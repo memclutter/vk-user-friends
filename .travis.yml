@@ -19,3 +19,11 @@ before_script:
 script:
   - ./vendor/bin/codecept build
   - ./vendor/bin/codecept run
+
+deploy:
+  provider: heroku
+  api_key: 65f6f47d-eea9-44d1-9ba8-5b4a8e03878d
+  app: vk-user-friends-memclutter
+  on: master
+  run:
+    - "./yii migrate --interactive=0"
