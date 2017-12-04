@@ -6,6 +6,9 @@ use app\modules\auth\mixins\AuthClientMixin;
 use app\modules\users\exceptions\FriendsNotFoundException;
 use yii\base\Model;
 
+/**
+ * Friend model
+ */
 class Friend extends Model
 {
     use AuthClientMixin;
